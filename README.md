@@ -59,3 +59,22 @@ ai-deep-dive/
     ├── safety.js
     ├── repos.js
     └── courses.js
+
+
+🛠️ How to Use & Customize
+​Edit Content: Open the files in the data/ directory and modify the arrays (e.g., concepts.js, frameworks.js) to update the text on the site.
+​Change Styles: Edit the corresponding CSS files in the css/ directory.
+​Update Behavior: Look in the js/ directory for tab-specific functionality and logic.
+​🌐 Deploy to GitHub Pages
+​Push this folder to your GitHub repository.
+​Navigate to your repository's Settings → Pages.
+​Under "Build and deployment", set the source to the main branch.
+​Your site will automatically go live at https://yourusername.github.io/ai-deep-dive.
+​🤝 Connect with Me
+​Built by Satyam Kumar for the AI Literacy Journey. Let's connect!
+​YouTube: @observe_with_satyam
+​Instagram: @observe_with_satyam
+​LinkedIn: satyam-kumar5286o
+​Telegram: CA_Protracker
+​📄 License
+​This project is licensed under the MIT License.
