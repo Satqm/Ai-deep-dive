@@ -20,6 +20,40 @@ js/ # All JavaScript behaviour
 data/ # All content (text, lists)
 
 
+ai-deep-dive/
+├── index.html
+├── README.md
+├── .gitignore
+├── css/
+│   ├── design-system.css
+│   ├── components.css
+│   ├── attention.css
+│   ├── layers.css
+│   ├── pyramid.css
+│   ├── safety.css
+│   ├── resources.css
+│   ├── concepts.css
+│   ├── agentic.css
+│   └── mindmap.css
+├── js/
+│   ├── app.js
+│   ├── attention.js
+│   ├── mindmap.js
+│   ├── pyramid.js
+│   ├── layers.js
+│   ├── safety.js
+│   ├── agentic.js
+│   └── resources.js
+└── data/
+├── concepts.js
+├── layers.js
+├── pyramid.js
+├── frameworks.js
+├── safety.js
+├── repos.js
+└── courses.js
+
+
 
 
 
