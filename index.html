@@ -10,13 +10,10 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
-  <!-- Preconnect for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- CSS -->
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/attention.css">
@@ -27,7 +24,6 @@
   <link rel="stylesheet" href="css/concepts.css">
   <link rel="stylesheet" href="css/agentic.css">
   <link rel="stylesheet" href="css/mindmap.css">
-  <!-- Early theme script to prevent flash -->
   <script>
     (function() {
       try {
@@ -71,7 +67,7 @@
     </div>
   </div>
 
-  <!-- Attention Tab -->
+  <!-- ATTENTION TAB (full static content) -->
   <div class="tab-content" id="tab-attn">
     <div class="container">
       <div class="hero">
@@ -92,19 +88,10 @@
         <div class="card-hd">
           <div class="step-badge" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);">10</div>
           <h2>Complete Attention Flow — Animated Visual Pipeline</h2>
-          <div style="margin-left:auto;display:flex;gap:.6rem;align-items:center;">
-            <select id="s10-speed"><option value="2200">Normal</option><option value="1100">Fast</option><option value="3800">Slow</option></select>
-            <div class="focus-chip" id="s10-focus-chip">Focus: Satyam</div>
-          </div>
+          <div style="margin-left:auto;display:flex;gap:.6rem;align-items:center;"><select id="s10-speed"><option value="2200">Normal</option><option value="1100">Fast</option><option value="3800">Slow</option></select><div class="focus-chip" id="s10-focus-chip">Focus: Satyam</div></div>
         </div>
         <div class="card-bd">
-          <div class="sim10-controls">
-            <button class="ctrl-btn" id="s10-prev"><i class="fas fa-step-backward"></i></button>
-            <button class="ctrl-btn primary" id="s10-play"><i class="fas fa-pause" id="s10-play-icon"></i></button>
-            <button class="ctrl-btn" id="s10-next"><i class="fas fa-step-forward"></i></button>
-            <button class="ctrl-btn" id="s10-reset">↺ Reset</button>
-            <span id="s10-counter" style="margin-left:auto;font-size:.82rem;">Step 1 / 6</span>
-          </div>
+          <div class="sim10-controls"><button class="ctrl-btn" id="s10-prev"><i class="fas fa-step-backward"></i></button><button class="ctrl-btn primary" id="s10-play"><i class="fas fa-pause" id="s10-play-icon"></i></button><button class="ctrl-btn" id="s10-next"><i class="fas fa-step-forward"></i></button><button class="ctrl-btn" id="s10-reset">↺ Reset</button><span id="s10-counter" style="margin-left:auto;font-size:.82rem;">Step 1 / 6</span></div>
           <div class="s10-phases" id="s10-phases"></div>
           <div class="s10-canvas" id="s10-canvas"></div>
           <div class="s10-explain" id="s10-explain"></div>
@@ -113,16 +100,136 @@
     </div>
   </div>
 
-  <!-- Other tabs (mindmap, safety, concepts, agentic, pyramid, layers, resources) will be loaded dynamically in JS -->
-  <!-- For brevity, we will include them as hidden divs with static HTML, but better to generate via JS. We'll include them as divs with proper ids and JS will fill them. -->
-  <!-- To keep the HTML clean, we'll let the JS inject content for all tabs except attention (which is already hardcoded). -->
-  <div class="tab-content" id="tab-mindmap"></div>
-  <div class="tab-content" id="tab-safety"></div>
-  <div class="tab-content" id="tab-concepts"></div>
-  <div class="tab-content" id="tab-agentic"></div>
-  <div class="tab-content" id="tab-pyramid"></div>
-  <div class="tab-content" id="tab-layers"></div>
-  <div class="tab-content" id="tab-resources"></div>
+  <!-- MIND MAP TAB (full static content) -->
+  <div class="tab-content" id="tab-mindmap">
+    <div class="mm-outer">
+      <div class="mm-hero">
+        <div class="eyebrow" style="color:var(--gold);border-color:rgba(245,166,35,.3);"><i class="fas fa-project-diagram"></i> Interactive Mind Map</div>
+        <h1>9 Prompt Frameworks</h1>
+        <p>Click any node → full explanation + real-life use cases + ready prompt</p>
+      </div>
+      <div class="mm-wrap">
+        <div id="mmCanvas">
+          <svg id="mmSvg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"><defs><linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5a623" stop-opacity=".8"/><stop offset="100%" stop-color="#ffd166" stop-opacity=".4"/></linearGradient></defs></svg>
+          <div class="mm-hub"><i class="fas fa-brain" style="font-size:2rem;color:#1a0f00;"></i><div class="mm-hub-title">PROMPT<br>FRAMEWORKS</div><div class="mm-hub-sub">9 pillars · tap to explore</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:1rem 0 2rem;color:#64748b;font-size:.84rem;"><i class="fas fa-hand-pointer" style="color:var(--gold-dim);"></i> Click any node to see full explanation + ready-to-use prompt</div>
+    </div>
+  </div>
+
+  <!-- SAFETY TAB (full static content) -->
+  <div class="tab-content" id="tab-safety">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow" style="color:var(--success);"><i class="fas fa-layer-group"></i> Infrastructure Deep Dive</div>
+        <h1 style="background:linear-gradient(135deg,#fff 30%,var(--success));-webkit-background-clip:text;background-clip:text;color:transparent;">AI Safety Layers</h1>
+        <p>AI safety is not a single filter. It is a layered system where each stage removes specific risks — transforming raw input into reliable, controlled output. <strong>Click any layer.</strong></p>
+      </div>
+      <div class="safety-infographic" id="safety-infographic"><div class="si-title"><i class="fas fa-shield-halved" style="color:var(--teal);"></i> The AI Safety Stack — Visual Overview</div><div class="si-subtitle">13 sequential layers that process every prompt. Each adds protection. None is sufficient alone. Click the timeline below for full details on each layer.</div><div class="si-layers" id="si-layers-list"></div><div class="si-stats-row"><div class="si-stat"><div class="si-stat-num">13</div><div class="si-stat-label">Safety Layers</div></div><div class="si-stat"><div class="si-stat-num">5</div><div class="si-stat-label">Residual Risks</div></div><div class="si-stat"><div class="si-stat-num">99.9%</div><div class="si-stat-label">Harm Filtered (est.)</div></div><div class="si-stat"><div class="si-stat-num">~0ms</div><div class="si-stat-label">Added Latency</div></div></div></div>
+      <div class="timeline" id="safety-timeline"></div>
+      <div class="card" style="border-color:rgba(239,68,68,.4);"><div class="card-hd"><div class="step-badge" style="background:var(--danger);"><i class="fas fa-exclamation-triangle"></i></div><h2>Residual Risks (The Reality)</h2></div><div class="card-bd"><p style="color:var(--text-dim);font-size:.9rem;margin-bottom:1rem;">Even after passing through all 13 layers, no system is perfectly secure. Click each risk to understand it.</p><div id="residual-risks"></div></div></div>
+    </div>
+  </div>
+
+  <!-- CONCEPTS TAB (full static content) -->
+  <div class="tab-content" id="tab-concepts">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow"><i class="fas fa-graduation-cap"></i> Core Knowledge</div>
+        <h1>AI Concepts Explained</h1>
+        <p>LLM → RAG → MCP → Agents — the full stack, visually explained with real flows and examples.</p>
+      </div>
+      <div class="concepts-section-title"><i class="fas fa-cube" style="color:var(--teal);"></i> Core Concepts</div>
+      <div class="concept-cards" id="concept-cards"></div>
+      <div class="concepts-section-title"><i class="fas fa-search" style="color:#60a5fa;"></i> How RAG Works — Visual Flow</div>
+      <div class="card"><div class="card-hd"><h2>📚 RAG (Retrieval-Augmented Generation) Architecture</h2></div><div class="card-bd"><p style="color:var(--text-dim);font-size:.9rem;margin-bottom:1rem;">RAG solves the #1 problem with LLMs: <strong>hallucination</strong>. Instead of guessing, the AI first <em>retrieves</em> relevant documents, then <em>generates</em> an answer grounded in real data.</p><div class="flow-diagram"><div class="flow-row"><div class="flow-node"><div class="flow-box fc-blue">👤 User Query</div><div class="flow-sub">e.g., "What is inflation?"</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-purple">🧠 Embedding Model</div><div class="flow-sub">Converts text to vectors</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-teal">🗄️ Vector Database</div><div class="flow-sub">Similarity search</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-gold">📄 Relevant Docs</div><div class="flow-sub">Top-k retrieved chunks</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-green">✅ LLM + Context</div><div class="flow-sub">Grounded answer</div></div></div></div><div class="rag-arch"><div class="rag-row"><div class="rag-label">📥 Indexing</div><div class="rag-content">Documents → Chunks → Embeddings → Stored in Vector DB <span class="rag-pill">One-time setup</span></div></div><div class="rag-row"><div class="rag-label">🔍 Retrieval</div><div class="rag-content">Query → Embed → Cosine similarity search → Top-K chunks <span class="rag-pill teal">Real-time</span></div></div><div class="rag-row"><div class="rag-label">⚡ Generation</div><div class="rag-content">Chunks + Query → LLM Prompt → Factual Answer (no hallucination) <span class="rag-pill teal">Per-request</span></div></div><div class="rag-row"><div class="rag-label">🗄️ Vector DBs</div><div class="rag-content"><span class="rag-pill">Pinecone</span> <span class="rag-pill">Qdrant</span> <span class="rag-pill">Chroma</span> <span class="rag-pill">Weaviate</span> <span class="rag-pill">FAISS</span></div></div><div class="rag-row"><div class="rag-label">📊 RAG Types</div><div class="rag-content"><span class="rag-pill teal">Naive RAG</span> <span class="rag-pill teal">Advanced RAG</span> <span class="rag-pill teal">Modular RAG</span> <span class="rag-pill teal">Agentic RAG</span></div></div></div><div class="explain-box"><strong>Why RAG beats fine-tuning for facts:</strong> Fine-tuning bakes knowledge into weights (expensive, goes stale). RAG fetches fresh knowledge at query-time — always up-to-date, verifiable, and cheaper.</div></div></div>
+      <div class="concepts-section-title"><i class="fas fa-plug" style="color:#c4b5fd;"></i> MCP — Model Context Protocol</div>
+      <div class="card"><div class="card-hd"><h2>🔌 MCP: Universal Standard for AI Tool Use</h2></div><div class="card-bd"><p style="color:var(--text-dim);font-size:.9rem;margin-bottom:1rem;">MCP is like <strong>USB-C for AI tools</strong>. Instead of every AI app needing custom integrations for every tool, MCP provides one universal protocol. Built by Anthropic, adopted by OpenAI, LangChain, and others.</p><div class="flow-diagram"><div class="flow-row"><div class="flow-node"><div class="flow-box fc-blue">👤 User</div><div class="flow-sub">Sends query</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-purple">🖥️ MCP Host<br>(Claude / GPT)</div><div class="flow-sub">Decides which server</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-teal">⚙️ MCP Client</div><div class="flow-sub">Protocol layer</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-gold">🔧 MCP Server</div><div class="flow-sub">Tool exposed via MCP</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-green">📊 Result</div><div class="flow-sub">Back to user</div></div></div></div><div class="mcp-grid"><div class="mcp-col"><div class="mcp-title">🔌 Available MCP Servers (2025)</div><div class="mcp-item"><span class="mcp-item-icon">🔍</span> Web Search (Brave, Perplexity)</div><div class="mcp-item"><span class="mcp-item-icon">📁</span> File System (Read/Write)</div><div class="mcp-item"><span class="mcp-item-icon">🐍</span> Code Execution (Python, JS)</div><div class="mcp-item"><span class="mcp-item-icon">📧</span> Gmail, Calendar, Slack</div><div class="mcp-item"><span class="mcp-item-icon">🗄️</span> Databases (Postgres, SQLite)</div><div class="mcp-item"><span class="mcp-item-icon">🐙</span> GitHub (PRs, Issues)</div></div><div class="mcp-divider"></div><div class="mcp-col"><div class="mcp-title">✅ Why MCP > Custom Integrations</div><div class="mcp-item"><span class="mcp-item-icon">🔌</span> One protocol for all tools</div><div class="mcp-item"><span class="mcp-item-icon">🚀</span> Build once, works with all AI</div><div class="mcp-item"><span class="mcp-item-icon">🔒</span> Standardized permissions</div><div class="mcp-item"><span class="mcp-item-icon">📖</span> Open source + community</div><div class="mcp-item"><span class="mcp-item-icon">🤖</span> Agentic AI workflows</div><div class="mcp-item"><span class="mcp-item-icon">🌐</span> Adopted by OpenAI, LangChain</div></div></div></div></div>
+      <div class="concepts-section-title"><i class="fas fa-table" style="color:var(--gold);"></i> LLM vs RAG vs Agent vs Agentic AI</div>
+      <div class="card"><div class="card-bd"><div style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>System</th><th>What It Does</th><th>Memory</th><th>Tools</th><th>Best For</th></tr></thead><tbody><tr><td class="highlight">LLM</td><td>Predicts next token from training data</td><td>Only within context window</td><td>❌</td><td>Text generation, Q&A</td></tr><tr><td class="highlight">RAG</td><td>LLM + real-time document retrieval</td><td>Retrieved docs per query</td><td>🗄️ Vector DB</td><td>Factual Q&A, knowledge bases</td></tr><tr><td class="highlight">AI Agent</td><td>LLM that decides to use tools</td><td>Session context</td><td>✅ Any MCP tool</td><td>Research, coding, automation</td></tr><tr><td class="highlight">Agentic AI</td><td>Agent that loops, reflects, improves</td><td>Long-term vector memory</td><td>✅ Multiple tools</td><td>Complex multi-step goals</td></tr></tbody></table></div></div></div>
+    </div>
+  </div>
+
+  <!-- AGENTIC AI TAB (full static content) -->
+  <div class="tab-content" id="tab-agentic">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow"><i class="fas fa-robot"></i> Beyond Simple Chatbots</div>
+        <h1>Agentic AI</h1>
+        <p>Autonomous systems that plan, act, observe, and improve themselves in a loop until a goal is achieved.</p>
+      </div>
+      <div class="concepts-section-title"><i class="fas fa-sync" style="color:var(--teal);"></i> The Agent Loop — How Agents Think</div>
+      <div class="card"><div class="card-hd"><h2>🔄 Plan → Act → Observe → Reflect (ReAct Framework)</h2></div><div class="card-bd"><p style="color:var(--text-dim);font-size:.9rem;margin-bottom:1.2rem;">Unlike a chatbot that answers once and stops, an Agent <strong>loops</strong>. It plans steps, executes them, observes results, and decides whether to continue or change course.</p><div class="agent-flow-wrap"><div class="agent-loop" id="agent-loop"><div class="loop-node" style="background:rgba(168,85,247,.12);border:1.5px solid rgba(168,85,247,.3);"><div class="ln-icon">🧠</div><div class="ln-title" style="color:#c4b5fd;">PLAN</div><div class="ln-desc">Break goal into sub-tasks. Decide sequence of actions.</div></div><div class="loop-node" style="background:rgba(59,130,246,.12);border:1.5px solid rgba(59,130,246,.3);"><div class="ln-icon">⚡</div><div class="ln-title" style="color:#93c5fd;">ACT</div><div class="ln-desc">Execute tool calls: search, code, API, file system.</div></div><div class="loop-node" style="background:rgba(0,212,200,.12);border:1.5px solid var(--border);"><div class="ln-icon">👁️</div><div class="ln-title" style="color:var(--teal);">OBSERVE</div><div class="ln-desc">Read tool output. Did it succeed? What was returned?</div></div><div class="loop-node" style="background:rgba(255,209,102,.1);border:1.5px solid rgba(255,209,102,.3);"><div class="ln-icon">🤔</div><div class="ln-title" style="color:var(--gold);">REFLECT</div><div class="ln-desc">Was this enough? Loop again or report final answer?</div></div></div><div style="text-align:center;margin-top:1rem;"><button onclick="runLoopDemo()" style="background:var(--teal);color:var(--slate);border:none;padding:.3rem .9rem;border-radius:999px;cursor:pointer;font-weight:600;">▶ Run Demo</button></div></div><div style="margin-top:1rem;"><strong style="font-size:.85rem;">Live Agent Trace — Goal: "Book cheapest flight to Tokyo under ₹50k with window seat"</strong></div><div class="agent-terminal" id="agent-terminal"><div style="color:rgba(0,212,200,.5);font-size:.78rem;margin-bottom:.6rem;">$ agent.run(goal="Book flight Tokyo under ₹50k window seat") ▌</div></div><button onclick="runAgentTrace()" style="background:rgba(0,212,200,.12);border:1px solid var(--teal);color:var(--teal);padding:.45rem 1.2rem;border-radius:999px;cursor:pointer;margin-top:.6rem;"><i class="fas fa-play"></i> Run Agent Trace</button></div></div>
+      <div class="concepts-section-title"><i class="fas fa-cubes" style="color:#60a5fa;"></i> 4 Pillars of Agentic Systems</div>
+      <div class="agentic-cards"><div class="ag-card"><div class="ag-icon">🧩</div><div class="ag-title">Planning & Reasoning</div><div class="ag-desc">Break complex goals into sub-tasks. Techniques: Chain-of-Thought, Tree of Thoughts, ReAct.</div><span class="ag-badge">CoT · ToT · ReAct · Reflexion</span></div><div class="ag-card"><div class="ag-icon">🔧</div><div class="ag-title">Tool Use via MCP</div><div class="ag-desc">Agents call external tools: web search, code executor, databases, APIs.</div><span class="ag-badge">Search · Code · DB · Files · APIs</span></div><div class="ag-card"><div class="ag-icon">💾</div><div class="ag-title">Memory & Context</div><div class="ag-desc">Short-term, long-term (vector DB), episodic, semantic memory.</div><span class="ag-badge">MemGPT · LangGraph Memory · RAG</span></div><div class="ag-card"><div class="ag-icon">👥</div><div class="ag-title">Multi-Agent Systems</div><div class="ag-desc">Multiple specialized agents collaborate: one plans, one codes, one critiques.</div><span class="ag-badge">CrewAI · AutoGen · LangGraph</span></div></div>
+      <div class="concepts-section-title"><i class="fas fa-sitemap" style="color:#34d399;"></i> Multi-Agent System — Visual Flow</div>
+      <div class="card"><div class="card-hd"><h2>👥 How CrewAI / AutoGen Multi-Agent Works</h2></div><div class="card-bd"><div class="flow-diagram"><div class="flow-row" style="flex-wrap:wrap;justify-content:center;gap:.6rem;"><div class="flow-node"><div class="flow-box fc-blue">👤 User Goal</div><div class="flow-sub">"Analyze Tesla stock"</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-purple">🎯 Orchestrator<br>Agent</div><div class="flow-sub">Assigns tasks</div></div><div class="flow-arrow">→</div><div class="flow-node" style="display:flex;flex-direction:column;gap:.4rem;"><div class="flow-box fc-teal">🔍 Research Agent</div><div class="flow-box fc-gold">📊 Data Agent</div><div class="flow-box fc-red">✍️ Writer Agent</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-purple">🧐 Critic<br>Agent</div><div class="flow-sub">Reviews output</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box fc-green">📋 Final<br>Report</div><div class="flow-sub">To user</div></div></div></div><div class="explain-box">Each agent is a separate LLM instance with a specialized system prompt, its own tools, and its own memory.</div></div></div>
+      <div class="concepts-section-title"><i class="fas fa-fire" style="color:#f87171;"></i> 2025–2026 Industry Updates</div>
+      <div class="card"><div class="card-bd"><div class="update-item"><div class="update-icon">🔌</div><div><div class="update-title">MCP (Model Context Protocol)</div><div class="update-desc">Open standard by Anthropic, now adopted by OpenAI, LangChain, Cursor.</div></div></div><div class="update-item"><div class="update-icon">🤖</div><div><div class="update-title">Claude Computer Use (Beta)</div><div class="update-desc">AI can control mouse and keyboard. Automate any desktop workflow.</div></div></div><div class="update-item"><div class="update-icon">🧠</div><div><div class="update-title">Self-Improving Agents (Reflexion)</div><div class="update-desc">Agents that critique their own outputs and refine answers.</div></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- PYRAMID TAB (full static content) -->
+  <div class="tab-content" id="tab-pyramid">
+    <div class="pyramid-page">
+      <div class="pyramid-wrap">
+        <div class="pyramid-hero">
+          <div class="eyebrow" style="color:var(--gold);"><i class="fas fa-layer-group"></i> Jensen Huang · NVIDIA CEO</div>
+          <h1>The AI Pyramid</h1>
+          <p>5 layers that power every AI system on Earth — from raw electricity to the chat interface you use daily. Click any layer to reveal the full story.</p>
+          <div class="py-credit"><i class="fab fa-nvidia"></i> Popularized by Jensen Huang at GTC 2024</div>
+        </div>
+        <div class="jensen-quote"><blockquote>"AI is not software. It is a new kind of computing — one that requires an entirely new stack, from the ground up."</blockquote><cite>— Jensen Huang, CEO NVIDIA</cite></div>
+        <div class="pyramid-stack" id="pyramid-stack"></div>
+        <div style="text-align:center;margin-top:1.5rem;font-size:.8rem;"><i class="fas fa-hand-pointer"></i> Click any layer to expand</div>
+        <div class="card" style="margin-top:2rem;"><div class="card-hd"><h2>🔗 How The Layers Connect</h2></div><div class="card-bd"><div class="flow-diagram"><div class="flow-row"><div class="flow-node"><div class="flow-box" style="background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.4);">⚡ Energy</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box" style="background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.4);">🔲 Chips</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box" style="background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.4);">🏭 Infra</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box" style="background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.4);">🧠 Models</div></div><div class="flow-arrow">→</div><div class="flow-node"><div class="flow-box" style="background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.4);">📱 Apps</div></div></div></div><div class="explain-box">Every time you send a ChatGPT message, all 5 layers activate in sequence.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYERS TAB (full static content) -->
+  <div class="tab-content" id="tab-layers">
+    <div class="layers-page">
+      <div class="layers-wrap">
+        <div class="layers-hero">
+          <div class="eyebrow"><i class="fas fa-circle-nodes"></i> From Concept to Product</div>
+          <h1>10 Layers of AI</h1>
+          <p style="color:var(--text-dim);font-size:.95rem;max-width:560px;margin:.8rem auto;">From the abstract idea of AI to the product in your pocket — 10 nested layers, each building on the last.</p>
+        </div>
+        <div style="text-align:center;font-size:.8rem;margin-bottom:.4rem;"><i class="fas fa-circle-info"></i> Click any ring to expand its details below</div>
+        <div class="venn-circle-outer" id="venn-circle-outer"><svg id="venn-svg" width="500" height="500" viewBox="0 0 500 500" style="overflow:visible;display:block;"></svg></div>
+        <div class="venn-mobile-stack" id="venn-mobile-stack"></div>
+        <div id="venn-tooltip" class="venn-tooltip"></div>
+        <div style="display:none;"><div class="venn-stack" id="venn-stack"></div></div>
+        <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin:2rem 0 1rem;border-left:4px solid var(--teal);padding-left:.8rem;"><i class="fas fa-arrow-right-arrow-left"></i> Input → Process → Output · For Every Layer</div>
+        <div class="layer-cards" id="layer-cards"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOURCES TAB (full static content) -->
+  <div class="tab-content" id="tab-resources">
+    <div class="res-page">
+      <div class="res-wrap">
+        <div class="hero">
+          <div class="eyebrow"><i class="fas fa-rocket"></i> Curated for 2026</div>
+          <h1>AI Resources Hub</h1>
+          <p>Top GitHub repositories and free courses hand-picked for your AI literacy journey. Click any card to see real-world use cases.</p>
+        </div>
+        <div class="playlist-banner"><div class="pb-inner"><div class="pb-yt-icon"><i class="fab fa-youtube"></i></div><div class="pb-text"><div class="pb-eyebrow">Observe with Satyam · Exclusive Series</div><div class="pb-title">AI Literacy Playlist</div><div class="pb-sub">Your complete guided journey from zero to building AI agents — curated videos explaining every concept on this site, step by step.</div><a href="https://youtube.com/playlist?list=PL9B7HLzfbpfNspofdGMN2yH5URxVCs2Lo&si=Y-GulxjuWjRys62O" target="_blank" rel="noopener noreferrer" class="pb-watch-btn"><i class="fab fa-youtube"></i> Watch the Full Playlist</a></div></div></div>
+        <div class="res-section-title"><i class="fab fa-github"></i> Top 15 GitHub Repositories</div>
+        <p style="color:var(--text-dim);margin-bottom:1.2rem;">Click any card to see why it matters today and how people are using it.</p>
+        <div class="cat-tabs"><button class="cat-tab active" onclick="filterRepos('all',this)">All 15</button><button class="cat-tab" onclick="filterRepos('agents',this)">🤖 Agents</button><button class="cat-tab" onclick="filterRepos('models',this)">🧠 Models</button><button class="cat-tab" onclick="filterRepos('frameworks',this)">🏗️ Frameworks</button><button class="cat-tab" onclick="filterRepos('visual',this)">⚡ Visual</button><button class="cat-tab" onclick="filterRepos('interfaces',this)">🖥️ Interfaces</button></div>
+        <div class="repo-grid" id="repo-grid"></div>
+        <div class="res-section-title" style="border-left-color:var(--gold);"><i class="fas fa-graduation-cap" style="color:var(--gold);"></i> Free Top Courses</div>
+        <p style="color:var(--text-dim);margin-bottom:1.5rem;">100% free, high-quality courses from world-class institutions.</p>
+        <div id="courses-container"></div>
+        <div class="res-section-title" style="border-left-color:#4285F4;"><i class="fab fa-google-drive" style="color:#4285F4;"></i> Personal Resource Folder</div>
+        <a href="https://drive.google.com/drive/folders/1iiVF53G3mZqWgE-JjXNoGaHF49KLLuwT" target="_blank" rel="noopener noreferrer" class="drive-card"><div class="drive-icon-box"><i class="fab fa-google-drive"></i></div><div class="drive-text"><div class="drive-eyebrow">Google Drive · Satyam Collection</div><div class="drive-title">Personal AI Resource Folder</div><div class="drive-sub">Additional notes, summaries, curated PDFs, and exclusive materials from Satyam personal AI literacy journey.</div></div><div class="drive-arrow"><i class="fas fa-arrow-right"></i></div></a>
+      </div>
+    </div>
+  </div>
 
   <div class="modal-bg" id="modal-bg">
     <div class="modal">
@@ -143,7 +250,7 @@
     </div>
   </footer>
 
-  <!-- Data files (must load first) -->
+  <!-- Data files -->
   <script src="data/concepts.js"></script>
   <script src="data/layers.js"></script>
   <script src="data/pyramid.js"></script>
@@ -161,13 +268,9 @@
   <script src="js/agentic.js"></script>
   <script src="js/resources.js"></script>
   <script>
-    // Initialize after all scripts
     window.addEventListener('DOMContentLoaded', () => {
-      // Set current year in footer
       document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Observe with Satyam. Built for the AI Literacy Journey.`;
-      // Load default tab content
       switchTab('concepts');
-      // Back to top scroll listener
       const topBtn = document.getElementById('to-top');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) topBtn.classList.add('show');
@@ -177,4 +280,4 @@
     });
   </script>
 </body>
-                                                                                                 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </html>
