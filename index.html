@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>AI Deep Dive — Observe with Satyam ✦</title>
+  <meta name="description" content="AI Literacy Journey: Attention simulator, 10 layers of AI, Agentic AI, RAG, MCP, safety stack, resources & frameworks — by Observe with Satyam.">
+  <meta property="og:title" content="AI Deep Dive — Observe with Satyam">
+  <meta property="og:description" content="Interactive AI learning hub: attention math, agentic AI, RAG, 10-layer venn, free resources.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <!-- Preconnect for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/attention.css">
+  <link rel="stylesheet" href="css/layers.css">
+  <link rel="stylesheet" href="css/pyramid.css">
+  <link rel="stylesheet" href="css/safety.css">
+  <link rel="stylesheet" href="css/resources.css">
+  <link rel="stylesheet" href="css/concepts.css">
+  <link rel="stylesheet" href="css/agentic.css">
+  <link rel="stylesheet" href="css/mindmap.css">
+  <!-- Early theme script to prevent flash -->
+  <script>
+    (function() {
+      try {
+        const stored = localStorage.getItem('owsTheme');
+        if (stored === 'light') document.documentElement.classList.add('light-mode');
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="to-top-hint" id="to-top"><i class="fas fa-arrow-up"></i></div>
+
+  <header>
+    <div class="hdr">
+      <a class="brand" href="#">
+        <div class="brand-icon">S</div>
+        <span class="brand-name">Observe with <span>Satyam</span></span>
+      </a>
+      <div class="hdr-right">
+        <div class="socials">
+          <a href="https://www.instagram.com/observe_with_satyam" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/satyam-kumar5286o" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://t.me/CA_Protracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon" id="theme-icon"></i></button>
+        <a href="https://youtube.com/@observe_with_satyam" target="_blank" rel="noopener noreferrer" class="yt-btn"><i class="fab fa-youtube"></i> Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="tab-nav-wrap">
+    <div class="tab-nav" role="tablist">
+      <button class="tab-btn active" id="btn-concepts" onclick="switchTab('concepts')" aria-label="AI Concepts"><i class="fas fa-lightbulb"></i><span>AI Concepts</span></button>
+      <button class="tab-btn" id="btn-layers" onclick="switchTab('layers')" aria-label="10 Layers"><i class="fas fa-circle-nodes"></i><span>10 Layers</span></button>
+      <button class="tab-btn" id="btn-pyramid" onclick="switchTab('pyramid')" aria-label="AI Pyramid"><i class="fas fa-layer-group"></i><span>AI Pyramid</span></button>
+      <button class="tab-btn" id="btn-mindmap" onclick="switchTab('mindmap')" aria-label="Frameworks"><i class="fas fa-project-diagram"></i><span>Frameworks</span></button>
+      <button class="tab-btn" id="btn-attn" onclick="switchTab('attn')" aria-label="Attention"><i class="fas fa-brain"></i><span>Attention</span></button>
+      <button class="tab-btn" id="btn-agentic" onclick="switchTab('agentic')" aria-label="Agentic AI"><i class="fas fa-robot"></i><span>Agentic AI</span></button>
+      <button class="tab-btn" id="btn-safety" onclick="switchTab('safety')" aria-label="Safety"><i class="fas fa-shield-alt"></i><span>Safety</span></button>
+      <button class="tab-btn" id="btn-resources" onclick="switchTab('resources')" aria-label="Resources"><i class="fas fa-rocket"></i><span>Resources</span></button>
+    </div>
+  </div>
+
+  <!-- Attention Tab -->
+  <div class="tab-content" id="tab-attn">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow"><i class="fas fa-bolt"></i> Interactive Deep Dive</div>
+        <h1>How Attention Works</h1>
+        <p>Click a token. Watch it gather context from every other word — step by step, math made visible.</p>
+      </div>
+      <div class="card"><div class="card-hd"><div class="step-badge">1</div><h2>Tokenization</h2></div><div class="card-bd"><div class="tokens-row" id="tokens-row"></div><div class="explain-box"><strong>Click any token →</strong> the entire dashboard updates from that token's perspective.</div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">2</div><h2>Token Embeddings</h2></div><div class="card-bd"><div id="embedding-display" class="embedding-display"></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">3</div><h2>Why Q, K, V?</h2></div><div class="card-bd"><div class="qkv-grid"><div class="qkv-card" style="border-top:3px solid #a855f7;"><div style="color:#a855f7;font-weight:bold;">Q — Query</div><div style="color:var(--text-dim);">"What am I looking for?"</div></div><div class="qkv-card" style="border-top:3px solid #eab308;"><div style="color:#eab308;font-weight:bold;">K — Key</div><div style="color:var(--text-dim);">"What do I offer?"</div></div><div class="qkv-card" style="border-top:3px solid #10b981;"><div style="color:#10b981;font-weight:bold;">V — Value</div><div style="color:var(--text-dim);">"Here's my actual info."</div></div></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">4</div><h2>Computing Q, K, V Vectors</h2></div><div class="card-bd"><div id="qkv-vectors" class="qkv-grid"></div><div class="formula-box">Q = W<sub>Q</sub>·E &nbsp;|&nbsp; K = W<sub>K</sub>·E &nbsp;|&nbsp; V = W<sub>V</sub>·E</div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">5</div><h2>Attention Scores — Q·K/√d</h2></div><div class="card-bd"><p style="color:var(--text-dim);margin-bottom:1rem;">Focused on: <span id="scores-focused" class="mono-teal"></span></p><div id="scores-bars" class="bar-list"></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">6</div><h2>Softmax — Probabilities</h2></div><div class="card-bd"><p style="color:var(--text-dim);margin-bottom:1rem;">Focused on: <span id="sm-focused" class="mono-teal"></span></p><div id="softmax-bars" class="bar-list"></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">7</div><h2>Attention Flow</h2></div><div class="card-bd"><div class="flow-vis" id="flow-vis"><svg id="flow-svg"></svg><div class="flow-tokens-row" id="flow-tokens-row"></div></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">8</div><h2>Full Attention Matrix — Heatmap</h2></div><div class="card-bd"><div class="heatmap-wrap"><div id="heatmap" class="heatmap-grid"></div></div></div></div>
+      <div class="card"><div class="card-hd"><div class="step-badge">9</div><h2>Output — Contextualized Embedding</h2></div><div class="card-bd"><p><span id="out-focused" class="mono-teal"></span> is now enriched with context.</p><div id="output-display" class="embedding-display"></div></div></div>
+      <div class="card" id="step10-card">
+        <div class="card-hd">
+          <div class="step-badge" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);">10</div>
+          <h2>Complete Attention Flow — Animated Visual Pipeline</h2>
+          <div style="margin-left:auto;display:flex;gap:.6rem;align-items:center;">
+            <select id="s10-speed"><option value="2200">Normal</option><option value="1100">Fast</option><option value="3800">Slow</option></select>
+            <div class="focus-chip" id="s10-focus-chip">Focus: Satyam</div>
+          </div>
+        </div>
+        <div class="card-bd">
+          <div class="sim10-controls">
+            <button class="ctrl-btn" id="s10-prev"><i class="fas fa-step-backward"></i></button>
+            <button class="ctrl-btn primary" id="s10-play"><i class="fas fa-pause" id="s10-play-icon"></i></button>
+            <button class="ctrl-btn" id="s10-next"><i class="fas fa-step-forward"></i></button>
+            <button class="ctrl-btn" id="s10-reset">↺ Reset</button>
+            <span id="s10-counter" style="margin-left:auto;font-size:.82rem;">Step 1 / 6</span>
+          </div>
+          <div class="s10-phases" id="s10-phases"></div>
+          <div class="s10-canvas" id="s10-canvas"></div>
+          <div class="s10-explain" id="s10-explain"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other tabs (mindmap, safety, concepts, agentic, pyramid, layers, resources) will be loaded dynamically in JS -->
+  <!-- For brevity, we will include them as hidden divs with static HTML, but better to generate via JS. We'll include them as divs with proper ids and JS will fill them. -->
+  <!-- To keep the HTML clean, we'll let the JS inject content for all tabs except attention (which is already hardcoded). -->
+  <div class="tab-content" id="tab-mindmap"></div>
+  <div class="tab-content" id="tab-safety"></div>
+  <div class="tab-content" id="tab-concepts"></div>
+  <div class="tab-content" id="tab-agentic"></div>
+  <div class="tab-content" id="tab-pyramid"></div>
+  <div class="tab-content" id="tab-layers"></div>
+  <div class="tab-content" id="tab-resources"></div>
+
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <div class="modal-head"><h2 id="modal-title"></h2><button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button></div>
+      <div class="modal-bd" id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Observe with <span>Satyam</span></div>
+      <div class="footer-copy" id="footer-year">© 2026 Observe with Satyam. Built for the AI Literacy Journey.</div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@observe_with_satyam" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.linkedin.com/in/satyam-kumar5286o" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="https://t.me/CA_Protracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> Telegram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Data files (must load first) -->
+  <script src="data/concepts.js"></script>
+  <script src="data/layers.js"></script>
+  <script src="data/pyramid.js"></script>
+  <script src="data/frameworks.js"></script>
+  <script src="data/safety.js"></script>
+  <script src="data/repos.js"></script>
+  <script src="data/courses.js"></script>
+  <!-- JS modules -->
+  <script src="js/app.js"></script>
+  <script src="js/attention.js"></script>
+  <script src="js/mindmap.js"></script>
+  <script src="js/pyramid.js"></script>
+  <script src="js/layers.js"></script>
+  <script src="js/safety.js"></script>
+  <script src="js/agentic.js"></script>
+  <script src="js/resources.js"></script>
+  <script>
+    // Initialize after all scripts
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set current year in footer
+      document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Observe with Satyam. Built for the AI Literacy Journey.`;
+      // Load default tab content
+      switchTab('concepts');
+      // Back to top scroll listener
+      const topBtn = document.getElementById('to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) topBtn.classList.add('show');
+        else topBtn.classList.remove('show');
+      });
+      topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    });
+  </script>
+</body>
+                                                                                                 </html>
