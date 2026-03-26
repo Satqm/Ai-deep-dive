@@ -1,4 +1,4 @@
-// Attention simulator – full logic
+// attention.js – Full attention simulator with flow lines and animation
 const tokens = ["Satyam","helps","you","upskill","in","AI"];
 const embeddings = [[0.8,0.2,0.5,0.9],[0.3,0.7,0.4,0.2],[0.6,0.4,0.8,0.3],[0.4,0.9,0.3,0.7],[0.2,0.3,0.6,0.4],[0.9,0.5,0.2,0.8]];
 const W_Q = [[0.5,0.3,0.2,0.4],[0.2,0.6,0.3,0.1],[0.4,0.2,0.5,0.3],[0.3,0.4,0.2,0.6]];
@@ -13,13 +13,13 @@ function mv(e, W) {
 const Qs = embeddings.map(e => mv(e, W_Q));
 const Ks = embeddings.map(e => mv(e, W_K));
 const Vs = embeddings.map(e => mv(e, W_V));
-function dot(a,b) { return a.reduce((s,v,i) => s + v * b[i], 0); }
+function dot(a,b) { return a.reduce((s,v,i)=>s+v*b[i],0); }
 const rawScores = tokens.map((_,i) => tokens.map((_,j) => +(dot(Qs[i], Ks[j]) / 2).toFixed(4)));
 function softmax(row) {
   let mx = Math.max(...row);
   let exps = row.map(v => Math.exp(v - mx));
-  let sum = exps.reduce((a,b) => a + b, 0);
-  return exps.map(v => +(v / sum).toFixed(4));
+  let sum = exps.reduce((a,b)=>a+b,0);
+  return exps.map(v => +(v/sum).toFixed(4));
 }
 const attnW = rawScores.map(row => softmax(row));
 const outputs = tokens.map((_,i) => {
@@ -56,18 +56,24 @@ function renderSoftmax() {
   document.getElementById('softmax-bars').innerHTML = tokens.map((t,i) => `<div class="bar-row"><div class="bar-label">${t}</div><div class="bar-track"><div class="bar-fill gold" style="width:${Math.max(1,pr[i]*100).toFixed(1)}%"></div></div><div class="bar-val">${(pr[i]*100).toFixed(0)}%</div></div>`).join('');
 }
 function renderFlow() {
-  document.getElementById('flow-focused').textContent = tokens[selIdx];
   let row = document.getElementById('flow-tokens-row');
   row.innerHTML = tokens.map((t,i) => `<div style="text-align:center;flex:1;"><div class="flow-tok-box ${i===selIdx?'src':''}">${t}</div><div style="font-size:.65rem;color:var(--text-dim);margin-top:.25rem;">${(attnW[selIdx][i]*100).toFixed(0)}%</div></div>`).join('');
   setTimeout(() => {
-    let svg = document.getElementById('flow-svg'), vis = document.getElementById('flow-vis'), vr = vis.getBoundingClientRect();
+    let svg = document.getElementById('flow-svg');
+    let vis = document.getElementById('flow-vis');
+    let vr = vis.getBoundingClientRect();
     let boxes = row.querySelectorAll('.flow-tok-box');
     if(!vr.width) return;
-    let sb = boxes[selIdx].getBoundingClientRect(), sx = sb.left + sb.width/2 - vr.left, sy = sb.top + sb.height/2 - vr.top;
+    let sb = boxes[selIdx].getBoundingClientRect();
+    let sx = sb.left + sb.width/2 - vr.left;
+    let sy = sb.top + sb.height/2 - vr.top;
     let lines = '';
     boxes.forEach((box,i) => {
       if(i===selIdx) return;
-      let b = box.getBoundingClientRect(), tx = b.left + b.width/2 - vr.left, ty = b.top + b.height/2 - vr.top, w = attnW[selIdx][i];
+      let b = box.getBoundingClientRect();
+      let tx = b.left + b.width/2 - vr.left;
+      let ty = b.top + b.height/2 - vr.top;
+      let w = attnW[selIdx][i];
       lines += `<line x1="${sx}" y1="${sy}" x2="${tx}" y2="${ty}" stroke="rgba(0,212,200,${0.18+w*0.82})" stroke-width="${1+w*11}" stroke-linecap="round"/>`;
     });
     svg.innerHTML = lines;
@@ -99,7 +105,7 @@ function renderOutput() {
 function updateAll() {
   renderTokensRow(); renderEmbedding(); renderQKV(); renderScores(); renderSoftmax(); renderFlow(); renderHeatmap(); renderOutput(); buildS10();
 }
-// Step10 animation
+// ========== STEP 10 ANIMATION ==========
 const S10_PH = [{l:'Input Tokens',e:'📥'},{l:'Q · K · V',e:'🔀'},{l:'Dot Scores',e:'📐'},{l:'Softmax',e:'🧮'},{l:'Weighted Sum',e:'⚖️'},{l:'Output',e:'✨'}];
 let s10Ph = 0, s10Play = true, s10Timer = null;
 function vs(vec){ return `[${vec.slice(0,2).join(', ')}..]`; }
@@ -139,13 +145,17 @@ function buildS10() {
 }
 function gotoS10Ph(p) { if(s10Timer) clearInterval(s10Timer); s10Play=false; document.getElementById('s10-play-icon').className='fas fa-play'; s10Ph=p; buildS10(); }
 function s10StartAuto() { if(s10Timer) return; const d=+document.getElementById('s10-speed').value; s10Timer=setInterval(()=>{ s10Ph=(s10Ph+1)%6; buildS10(); }, d); }
+
+// Initialize when the attention tab is active
 document.addEventListener('DOMContentLoaded', () => {
-  updateAll();
-  s10StartAuto();
-  document.getElementById('s10-play').addEventListener('click', () => { s10Play = !s10Play; document.getElementById('s10-play-icon').className = s10Play ? 'fas fa-pause' : 'fas fa-play'; if(s10Play) s10StartAuto(); else { if(s10Timer) clearInterval(s10Timer); s10Timer = null; } });
-  document.getElementById('s10-prev').addEventListener('click', () => gotoS10Ph((s10Ph-1+6)%6));
-  document.getElementById('s10-next').addEventListener('click', () => gotoS10Ph((s10Ph+1)%6));
-  document.getElementById('s10-reset').addEventListener('click', () => { selIdx=0; s10Ph=0; updateAll(); });
-  document.getElementById('s10-speed').addEventListener('change', () => { if(s10Play && s10Timer) { clearInterval(s10Timer); s10Timer=null; s10StartAuto(); } });
+  // Only run if the attention tab exists and is not yet initialized
+  if(document.getElementById('tab-attn')) {
+    updateAll();
+    s10StartAuto();
+    document.getElementById('s10-play').addEventListener('click', () => { s10Play = !s10Play; document.getElementById('s10-play-icon').className = s10Play ? 'fas fa-pause' : 'fas fa-play'; if(s10Play) s10StartAuto(); else { if(s10Timer) clearInterval(s10Timer); s10Timer = null; } });
+    document.getElementById('s10-prev').addEventListener('click', () => gotoS10Ph((s10Ph-1+6)%6));
+    document.getElementById('s10-next').addEventListener('click', () => gotoS10Ph((s10Ph+1)%6));
+    document.getElementById('s10-reset').addEventListener('click', () => { selIdx=0; s10Ph=0; updateAll(); });
+    document.getElementById('s10-speed').addEventListener('change', () => { if(s10Play && s10Timer) { clearInterval(s10Timer); s10Timer=null; s10StartAuto(); } });
+  }
 });
-window.updateAll = updateAll;
