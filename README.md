@@ -1,30 +1,37 @@
-# Ai-deep-dive
-AI Deep Dive is an interactive web platform that simplifies AI concepts through visualizations like attention models, layered architecture, and mind maps. Built with HTML, CSS, and JavaScript, it helps learners explore AI systems, safety, and resources in an engaging, structured way.
-# AI Deep Dive — Observe with Satyam
+# 🧠 AI Deep Dive — Observe with Satyam
 
-Interactive learning hub covering Attention mechanism, 10 Layers of AI, AI Pyramid, Prompt Frameworks, Agentic AI, Safety Architecture, and curated resources.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://satqm.github.io/Ai-deep-dive)
 
-## Live Demo
-[https://yourusername.github.io/ai-deep-dive](https://satqm.github.io/Ai-deep-dive)
+**AI Deep Dive** is an interactive web platform that simplifies complex AI concepts through engaging visualizations like attention models, layered architecture, and mind maps. Built entirely with HTML, CSS, and JavaScript, it helps learners explore AI systems, safety, and curated resources in a structured, easy-to-understand way.
 
-## Project Structure
+---
 
+## 🚀 Live Demo
+
+Experience the interactive learning hub here: **[Launch AI Deep Dive](https://satqm.github.io/Ai-deep-dive)**
+
+## 📚 What's Inside?
+
+This interactive hub covers a variety of core AI concepts:
+*   **Attention Mechanism**
+*   **10 Layers of AI**
+*   **The AI Pyramid**
+*   **Prompt Frameworks**
+*   **Agentic AI**
+*   **Safety Architecture**
+*   **Curated Resources & Mind Maps**
+
+## 📁 Project Structure
+
+The project is structured modularly to keep styles, scripts, and data separated:
+
+```text
 ai-deep-dive/
-
-- index.html # Main entry point
-
-css/ # All styles (modular)
-
-js/ # All JavaScript behaviour
-
-data/ # All content (text, lists)
-
-
-ai-deep-dive/
-├── index.html
-├── README.md
-├── .gitignore
-├── css/
+├── index.html            # Main entry point
+├── README.md             # Project documentation
+├── .gitignore            # Git ignore file
+├── css/                  # All styles (modular)
 │   ├── design-system.css
 │   ├── components.css
 │   ├── attention.css
@@ -35,7 +42,7 @@ ai-deep-dive/
 │   ├── concepts.css
 │   ├── agentic.css
 │   └── mindmap.css
-├── js/
+├── js/                   # All JavaScript behavior
 │   ├── app.js
 │   ├── attention.js
 │   ├── mindmap.js
@@ -44,41 +51,11 @@ ai-deep-dive/
 │   ├── safety.js
 │   ├── agentic.js
 │   └── resources.js
-└── data/
-├── concepts.js
-├── layers.js
-├── pyramid.js
-├── frameworks.js
-├── safety.js
-├── repos.js
-└── courses.js
-
-
-
-
-
-
-
-## How to Use
-
-- **Edit content**: Open the files in `data/` and modify the arrays (e.g., `concepts.js`, `frameworks.js`).
-- **Change styles**: Edit the corresponding CSS file in `css/`.
-- **Update JavaScript**: Look in `js/` for tab‑specific functionality.
-
-## Deploy to GitHub Pages
-
-1. Push this folder to a GitHub repository.
-2. Go to repository **Settings** → **Pages** → set source to `main` branch.
-3. Your site will be live at `https://yourusername.github.io/ai-deep-dive`.
-
-## Credits
-
-Built by Satyam Kumar for the AI Literacy Journey.  
-YouTube: [@observe_with_satyam](https://youtube.com/@observe_with_satyam)  
-Instagram: [@observe_with_satyam](https://www.instagram.com/observe_with_satyam)  
-LinkedIn: [satyam-kumar5286o](https://www.linkedin.com/in/satyam-kumar5286o)  
-Telegram: [CA_Protracker](https://t.me/CA_Protracker)
-
-## License
-
-MIT
+└── data/                 # All content (text, lists)
+    ├── concepts.js
+    ├── layers.js
+    ├── pyramid.js
+    ├── frameworks.js
+    ├── safety.js
+    ├── repos.js
+    └── courses.js
